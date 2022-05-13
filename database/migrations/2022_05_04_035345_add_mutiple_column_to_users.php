@@ -14,9 +14,10 @@ class AddMutipleColumnToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('mail_address')->after('name');
-            $table->string('address')->after('password');
-            $table->string('phone')->after('address');
+            //
+            $table->string('mail_address');
+            $table->string('address');
+            $table->number('phone');
             $table->dropColumn('email_verified_at');
             $table->dropColumn('remember_token');
             $table->dropColumn('email');
@@ -32,6 +33,7 @@ class AddMutipleColumnToUsers extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
+            //
             $table->dropColumn('mail_address', 'address', 'phone');
             $table->dropSoftDeletes();
         });

@@ -8,10 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Items extends Model
 {
     use HasFactory;
-
     protected $fillable = [
         'id',
         'name',
-        'description'
+        'description',
+        'created_at',
+        'updated_at',
+        'deleted_at'
     ];
 }
