@@ -35,29 +35,6 @@ class UsersController extends Controller
         $address = $request->get('address');
         $phone = $request->get('phone');
 
-        //vadilate c1
-        // $request->validate([
-        //     'name' => ['required', 'max:255', 'min:5']
-        // ], [
-        //     'name.required' => 'Ten bat buoc phai nhap',
-        //     'name.min' => 'Ten khong duoc it hon 6 ki tu',
-        //     'name.max' => 'Ten khong duoc hon 255 ki tu'
-        //     // 'name.required' => ':attribute bat buoc phai nhap',
-        // ]);
-
-        //validate c2
-        // $rules = [
-        //     'name' => ['required', 'max:255', 'min:5']
-        // ];
-
-        // $messages = [
-        //     'name.required' => 'Ten bat buoc phai nhap',
-        //     'name.min' => 'Ten khong duoc it hon 6 ki tu',
-        //     'name.max' => 'Ten khong duoc hon 255 ki tu'
-        // ];
-
-        // $request -> validate($rules, $messages);
-
         DB::table('users')->insert(['name' => $name, 'mail_address' => $email, 'password' => $password, 'address' => $address, 'phone' => $phone]);
         $request->session()->flash('success','Thêm người dùng thành công!');
         return redirect(url('admin/users'));

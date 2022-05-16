@@ -16,14 +16,14 @@
             <div class="panel-body">
                 <div class="form-group">
                     <label for="name">Name:</label>
-                    <input type="text" class="form-control{{($errors->first('name') ? " form-error" : "")}}" name="name" placeholder="Tên từ 6-200 kí tự" value="<?php echo isset($record -> name) ? $record -> name : '' ?>">
+                    <input type="text" class="form-control{{($errors->first('name') ? " form-error" : "")}}" name="name" placeholder="Tên từ 6-200 kí tự" value="<?php echo isset($record->name) ? $record->name : '' ?>">
                     @error('name')
                         <span style="color: red;">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label for="mail_address">Email:</label>
-                    <input type="email" class="form-control{{($errors->first('mail_address') ? " form-error" : "")}}" name="mail_address" value="<?php echo isset($record -> mail_address) ? $record -> mail_address : '' ?>" @if(isset($record->mail_address)) disabled @endif >
+                    <input type="email" class="form-control{{($errors->first('mail_address') ? " form-error" : "")}}" name="mail_address" value="<?php echo isset($record->mail_address) ? $record -> mail_address : '' ?>" @if(isset($record->mail_address)) disabled @endif >
                     @error('mail_address')
                         <span style="color: red;">{{ $message }}</span>
                     @enderror

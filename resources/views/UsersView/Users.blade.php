@@ -33,10 +33,10 @@
                     @foreach ($data as $rows)
                     <tr class="STT">
                         <td></td>
-                        <td>{{ $rows -> mail_address }}</td>
-                        <td>{{ $rows -> name }}</td>
-                        <td>{{ $rows -> address }}</td>
-                        <td>{{ $rows -> phone }}</td>
+                        <td>{{ $rows->mail_address }}</td>
+                        <td>{{ $rows->name }}</td>
+                        <td>{{ $rows->address }}</td>
+                        <td>{{ $rows->phone }}</td>
                         <td style="text-align:center;">
                         <a href="{{ url('admin/users/update/'.$rows->id) }}">Update</a>&nbsp;
                         <a href="{{ url('admin/users/delete/'.$rows->id) }}" onclick="return window.confirm('Are you sure?');">Delete</a>
@@ -45,7 +45,7 @@
                     @endforeach
                 </table>
                 <!-- ham render su dung de phan trang -->
-                {{ $data -> render() }}
+                {{ $data->render() }}
             </div>
         </div>
     </div>
