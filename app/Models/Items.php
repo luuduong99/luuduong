@@ -11,9 +11,6 @@ class Items extends Model
     protected $fillable = [
         'id',
         'name',
-        'description',
-        'created_at',
-        'updated_at',
-        'deleted_at'
+        'description'
     ];
 }

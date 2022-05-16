@@ -15,9 +15,6 @@ class Users extends Model
         'mail_address',
         'password',
         'address',
-        'phone',
-        'created_at',
-        'updated_at',
-        'deleted_at'
+        'phone'
     ];
 }
