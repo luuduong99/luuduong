@@ -58,7 +58,6 @@
                 </div>
                 <button class="btn btn-success" name="addUsers" type="submit">Add Users</button>
                 <button class="btn btn-success" name="Users" type="submit"><a style="color: white; text-decoration: none;" href="{{ url('admin/users') }}">Users</a></button>
-
             </div>
         </form>
     </div>
