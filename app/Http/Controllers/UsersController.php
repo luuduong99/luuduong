@@ -11,14 +11,14 @@ use App\Http\Requests\CreateUsersRequest;
 
 class UsersController extends Controller
 {
-    //Hien thi user
+    //Huển thị user
     public function index (Request $request)
     {
         $data = DB::table("users")->orderBy("id","desc")->paginate(15);
         return view("UsersView.Users",["data"=>$data]);
     }
 
-    //Them user
+    //Thêm user
     public function create (Request $request)
     {
         //tao action de dua vao thuoc tinh action cua the form
@@ -40,7 +40,7 @@ class UsersController extends Controller
         return redirect(url('admin/users'));
     }
 
-    //Sua user
+    //Sửa user
     public function update (Request $request, $id)
     {
         $action = url('admin/users/update/$id');
@@ -62,7 +62,7 @@ class UsersController extends Controller
         return redirect(url('admin/users'));
     }
 
-    //xoa users
+    //Xóa user
     public function delete (Request $request, $id)
     {
         $action = url('admin/users/delete/$id');
