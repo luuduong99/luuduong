@@ -30,28 +30,28 @@
                 </div>
                 <div class="form-group">
                     <label for="password">Password:</label>
-                    <input type="password" class="form-control{{($errors->first('password') ? " form-error" : "")}}" name="password" @if(isset($record -> mail_address)) placeholder="Không đổi password thì không nhập thông tin vào ô này" @else  @endif>
+                    <input type="password" class="form-control{{($errors->first('password') ? " form-error" : "")}}" name="password" @if(isset($record->mail_address)) placeholder="Không đổi password thì không nhập thông tin vào ô này" @endif>
                     @error('password')
                         <span style="color: red;">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label for="password_comfirm">Confirmation password:</label>
-                    <input type="password" class="form-control{{($errors->first('password_comfirm') ? " form-error" : "")}}" name="password_comfirm"  @if(isset($record->mail_address)) placeholder="Không đổi password thì không nhập thông tin vào ô này" @else  @endif>
+                    <input type="password" class="form-control{{($errors->first('password_comfirm') ? " form-error" : "")}}" name="password_comfirm"  @if(isset($record->mail_address)) placeholder="Không đổi password thì không nhập thông tin vào ô này" @endif>
                     @error('password_comfirm')
                         <span style="color: red;">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone:</label>
-                    <input type="text" class="form-control{{($errors->first('phone') ? " form-error" : "")}}" name="phone" id="phone" value="<?php echo isset($record -> phone) ? $record -> phone : '' ?>" >
+                    <input type="text" class="form-control{{($errors->first('phone') ? " form-error" : "")}}" name="phone" id="phone" value="<?php echo isset($record->phone) ? $record->phone : '' ?>" >
                     @error('phone')
                         <span style="color: red;">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label for="address">Address:</label>
-                    <input type="text" class="form-control{{($errors->first('address') ? " form-error" : "")}}" name="address" id="address" value="<?php echo isset($record -> address) ? $record -> address : '' ?>" >
+                    <input type="text" class="form-control{{($errors->first('address') ? " form-error" : "")}}" name="address" id="address" value="<?php echo isset($record->address) ? $record->address : '' ?>" >
                     @error('address')
                         <span style="color: red;">{{ $message }}</span>
                     @enderror
