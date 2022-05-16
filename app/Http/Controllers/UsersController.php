@@ -14,7 +14,7 @@ class UsersController extends Controller
     public function index (Request $request)
     {
         $data = DB::table("users")->orderBy("id", "desc")->paginate(20);
-        return view("admin.users", ["data"=>$data]);
+        return view("admin.users", ["data" => $data]);
     }
 
     public function create (Request $request)
