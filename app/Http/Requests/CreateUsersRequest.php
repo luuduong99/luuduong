@@ -30,7 +30,7 @@ class CreateUsersRequest extends FormRequest
             'password' => ['required', 'max:255'],
             'password_comfirm' => ['required', 'same:password'],
             'address' => ['max:255'],
-            'phone' => ['max:15,integer']
+            'phone' => ['max:15, integer']
         ];
     }
 

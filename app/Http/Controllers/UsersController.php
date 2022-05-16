@@ -11,19 +11,16 @@ use App\Http\Requests\CreateUsersRequest;
 
 class UsersController extends Controller
 {
-    //Huển thị user
     public function index (Request $request)
     {
-        $data = DB::table("users")->orderBy("id","desc")->paginate(15);
-        return view("UsersView.Users",["data"=>$data]);
+        $data = DB::table("users")->orderBy("id", "desc")->paginate(20);
+        return view("admin.users", ["data"=>$data]);
     }
 
-    //Thêm user
     public function create (Request $request)
     {
-        //tao action de dua vao thuoc tinh action cua the form
         $action = url('admin/users/create');
-        return view('UsersView.AddUsers');
+        return view('admin.add');
     }
 
     public function createPost (CreateUsersRequest $request)
@@ -36,17 +33,15 @@ class UsersController extends Controller
         $phone = $request->get('phone');
 
         DB::table('users')->insert(['name' => $name, 'mail_address' => $email, 'password' => $password, 'address' => $address, 'phone' => $phone]);
-        $request->session()->flash('success','Thêm người dùng thành công!');
+        $request->session()->flash('success', 'Thêm người dùng thành công!');
         return redirect(url('admin/users'));
     }
 
-    //Sửa user
     public function update (Request $request, $id)
     {
         $action = url('admin/users/update/$id');
-        //lay 1 ban ghi
-        $record = DB::table('users')->where('id',$id)->first();
-        return view('UsersView.AddUsers', ['record' => $record]);
+        $record = DB::table('users')->where('id', $id)->first();
+        return view('admin.add', ['record' => $record]);
     }
 
     public function updatePost (Request $request, $id)
@@ -58,18 +53,15 @@ class UsersController extends Controller
         $phone = $request->get('phone');
 
         DB::table('users')->where('id', $id)->update(['name' => $name, 'password' => $password, 'address' => $address, 'phone' => $phone]);
-        $request->session()->flash('update','Sửa người dùng thành công!');
+        $request->session()->flash('update', 'Sửa người dùng thành công!');
         return redirect(url('admin/users'));
     }
 
-    //Xóa user
     public function delete (Request $request, $id)
     {
         $action = url('admin/users/delete/$id');
-        //xoa users theo id
         DB::table('users')->where('id', $id)->delete();
-        $request->session()->flash('delete','Xóa người dùng thành công!');
-        //di chuyen den mot url khac
+        $request->session()->flash('delete', 'Xóa người dùng thành công!');
         return redirect(url('admin/users'));
     }
 }

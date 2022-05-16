@@ -1,4 +1,4 @@
-@extends("UsersView.layout")
+@extends("admin.layout")
 @section("do-du-lieu")
     <div class="container">
         @if (session('success'))
