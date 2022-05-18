@@ -1,11 +1,6 @@
 @extends("admin.layout")
 @section("do-du-lieu")
     <div class="container">
-        @if (session('success'))
-            <div class="alert alert-success" role="alert">
-                {{ session('success') }}
-            </div>
-        @endif
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <h2 class="text-center">AddUser</h2>
@@ -23,7 +18,7 @@
                 </div>
                 <div class="form-group">
                     <label for="mail_address">Email:</label>
-                    <input type="email" class="form-control{{($errors->first('mail_address') ? " form-error" : "")}}" name="mail_address" value="<?php echo isset($record->mail_address) ? $record -> mail_address : '' ?>" @if(isset($record->mail_address)) disabled @endif >
+                    <input type="email" class="form-control{{($errors->first('mail_address') ? " form-error" : "")}}" name="mail_address" value="<?php echo isset($record->mail_address) ? $record-> mail_address : '' ?>" @if(isset($record->mail_address)) disabled @endif >
                     @error('mail_address')
                         <span style="color: red;">{{ $message }}</span>
                     @enderror
@@ -57,7 +52,7 @@
                     @enderror
                 </div>
                 <button class="btn btn-success" name="addUsers" type="submit">Add Users</button>
-                <button class="btn btn-success" name="Users" type="submit"><a style="color: white; text-decoration: none;" href="{{ url('admin/users') }}">Users</a></button>
+                <button class="btn btn-success" name="Users" type="submit"><a style="color: white; text-decoration: none;" href="{{ route('users') }}">Users</a></button>
             </div>
         </form>
     </div>

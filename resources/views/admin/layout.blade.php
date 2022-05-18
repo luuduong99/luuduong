@@ -20,17 +20,6 @@
         .flex {
             margin-bottom: 30px;
         }
-        table {
-            counter-reset: rowNumber;
-        }
-        table .STT {
-            counter-increment: rowNumber;
-        }
-        table .STT td:first-child::before {
-            content: counter(rowNumber);
-            min-width: 1em;
-            margin-right: 0.5em;
-        }
         .form-error {
             border: 2px solid #e74c3c;
         }

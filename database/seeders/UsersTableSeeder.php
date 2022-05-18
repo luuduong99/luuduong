@@ -20,7 +20,6 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        //
         $faker = Factory::create();
         $limit = 100;
         for ($i = 0; $i < $limit; $i++) {
