@@ -11,49 +11,38 @@ use App\Http\Requests\CreateUsersRequest;
 
 class UsersController extends Controller
 {
-    public function index (Request $request)
+    public function index ()
     {
-        $data = Users::query()->orderByDesc('id')->paginate(20);
-        return view("admin.users", compact('data'));
+        $data = Users::users();
+        return view("users.users", compact('data'));
     }
 
-    public function create (Request $request)
+    public function create ()
     {
-        return view('admin.add');
+        return view('users.create');
     }
 
-    public function createUsers (CreateUsersRequest $request)
+    public function store (CreateUsersRequest $request)
     {
-        $data = $request->all();
-        $data['password'] = md5($request->password);
-        Users::create($data);
-        return redirect()->route('users')->with('success', 'Thêm người dùng thành công!');
+        $data = Users::store($request);
+        return redirect()->route('users.index');
     }
 
-    public function update (Request $request, $id)
+    public function show ($id)
     {
-        $record = Users::all()->find($id);
-        return view('admin.add', compact('record'));
+        $record = Users::show($id);
+        return view('users.edit', compact('record'));
     }
 
-    public function updateUsers (Request $request, $id)
+    public function edit (Request $request, $id)
     {
-        $data = $request->all();
-        $data['password'] = md5($request->password);
-        $record = Users::find($id);
-        $record->name = $data['name'];
-        $record->password = $data['password'];
-        $record->address = $data['address'];
-        $record->phone = $data['phone'];
-
-        $record->save();
-        return redirect()->route('users')->with('update', 'Sửa người dùng thành công!');
+        $record = Users::edit($id, $request);
+        return redirect()->route('users.index');
     }
 
-    public function delete (Request $request, $id)
+    public function destroy (Request $request, $id)
     {
-        $user = Users::all()->find($id);
-        $user->delete();
-        return redirect()->route('users')->with('delete', 'Xóa người dùng thành công!');
+        $user = Users::remove($request, $id);
+        return redirect()->route('users.index');
     }
 }

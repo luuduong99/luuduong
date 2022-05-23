@@ -28,7 +28,7 @@
 </head>
 <body>
     <div class="container-fluid" style="margin-top: 20px; margin-bottom: 100px;">
-        @yield("do-du-lieu")
+        @yield("load")
     </div>
 </body>
 </html>

@@ -1,12 +1,12 @@
-@extends("admin.layout")
-@section("do-du-lieu")
+@extends("users.layout")
+@section("load")
     <div class="container">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <h2 class="text-center">AddUser</h2>
             </div>
         </div>
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('users.store', $record->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="panel-body">
                 <div class="form-group">
@@ -25,14 +25,14 @@
                 </div>
                 <div class="form-group">
                     <label for="password">Password:</label>
-                    <input type="password" class="form-control{{($errors->first('password') ? " form-error" : "")}}" name="password" @if(isset($record->mail_address)) placeholder="Không đổi password thì không nhập thông tin vào ô này" @endif>
+                    <input type="password" class="form-control{{($errors->first('password') ? " form-error" : "")}}" name="password">
                     @error('password')
                         <span style="color: red;">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label for="password_comfirm">Confirmation password:</label>
-                    <input type="password" class="form-control{{($errors->first('password_comfirm') ? " form-error" : "")}}" name="password_comfirm"  @if(isset($record->mail_address)) placeholder="Không đổi password thì không nhập thông tin vào ô này" @endif>
+                    <input type="password" class="form-control{{($errors->first('password_comfirm') ? " form-error" : "")}}" name="password_comfirm">
                     @error('password_comfirm')
                         <span style="color: red;">{{ $message }}</span>
                     @enderror
@@ -46,13 +46,13 @@
                 </div>
                 <div class="form-group">
                     <label for="address">Address:</label>
-                    <input type="text" class="form-control{{($errors->first('address') ? " form-error" : "")}}" name="address" id="address" value="<?php echo isset($record->address) ? $record->address : '' ?>" >
+                    <input type="text" class="form-control{{($errors->first('address') ? " form-error" : "")}}" name="address" id="address" value="<?php echo isset($record->address) ? $record -> address : '' ?>" >
                     @error('address')
                         <span style="color: red;">{{ $message }}</span>
                     @enderror
                 </div>
                 <button class="btn btn-success" name="addUsers" type="submit">Add Users</button>
-                <button class="btn btn-success" name="Users" type="submit"><a style="color: white; text-decoration: none;" href="{{ route('users') }}">Users</a></button>
+                <button class="btn btn-success" name="Users" type="submit"><a style="color: white; text-decoration: none;" href="{{ route('users.index') }}">Users</a></button>
             </div>
         </form>
     </div>

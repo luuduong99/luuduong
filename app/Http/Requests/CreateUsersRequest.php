@@ -34,26 +34,6 @@ class CreateUsersRequest extends FormRequest
         ];
     }
 
-    public function messages ()
-    {
-        return [
-            'name.required' => ':attribute không được để trống',
-            'name.max' => ':attribute không được nhiều hơn 255 kí tự',
-            'mail_address.required' => ':attribute không được để trống',
-            'mail_address.max' => ':attribute không được nhiều hơn 100 kí tự',
-            'mail_address.unique' => ':attribute đã tồn tại',
-            'mail_address.email' => ':attribute không phải kiểu email',
-            'password.required' => ':attribute không được để trống',
-            'password.max' => ':attribute không được nhiều hơn 255 kí tự',
-            'password.regex' => ':attribute không được có khoảng trống',
-            'password_comfirm.required_if' => ':attribute không được để trống',
-            'password_comfirm.same' => ':attribute không giống mật khẩu',
-            'address.max' => ':attribute không được quá 255 kí tự',
-            'phone.size' => ':attribute không được quá 15 kí tự',
-            'phone.integer' => ':attribute chỉ bao gồm các kí tự số'
-        ];
-    }
-
     public function attributes()
     {
         return [

@@ -1,24 +1,24 @@
-@extends("admin.layout")
-@section("do-du-lieu")
+@extends("users.layout")
+@section("load")
     <div class="col-md-12">
         @if (session('success'))
             <div class="alert alert-success" role="alert">
-                {{ session('success') }}
+                {{ trans('message.success') }}
             </div>
         @endif
         @if (session('update'))
             <div class="alert alert-success" role="alert">
-                {{ session('update') }}
+                {{ trans('message.update') }}
             </div>
         @endif
         @if (session('delete'))
             <div class="alert alert-success" role="alert">
-                {{ session('delete') }}
+                {{ trans('message.delete') }}
             </div>
         @endif
         <h1 style="text-align: center;">List Users</h1>
         <div style="margin-bottom:5px;">
-            <a href="{{ route('create') }}" class="btn btn-primary">Add user</a>
+            <a href="{{ route('users.create') }}" class="btn btn-primary">Add user</a>
         </div>
         <div class="panel panel-primary">
             <div class="panel-body">
@@ -38,14 +38,14 @@
                         <td>{{ $rows->address }}</td>
                         <td>{{ $rows->phone }}</td>
                         <td style="text-align:center;">
-                        <a href="{{ route('update', $rows->id) }}">Update</a>&nbsp;
-                        <a href="{{ route('delete', $rows->id) }}" onclick="return window.confirm('Are you sure?');">Delete</a>
+                        <a href="{{ route('users.show', $rows->id) }}">Update</a>&nbsp;
+                        <a href="{{ route('users.destroy', $rows->id) }}" onclick="return window.confirm('Are you sure?');">Delete</a>
                     </td>
                     </tr>
                     @endforeach
                 </table>
                 <!-- ham render su dung de phan trang -->
-                {{ $data->render() }}
+                {{ $data -> render() }}
             </div>
         </div>
     </div>

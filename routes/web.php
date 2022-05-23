@@ -14,15 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix' => 'admin'], function ()
-{
-    Route::get('/users', 'UsersController@index')->name('users');
-    //create
-    Route::get('/users/create', 'UsersController@create')->name('create');
-    Route::post('/users/create', 'UsersController@createUsers')->name('createUsers');
-    //update
-    Route::get('/users/update/{id}', 'UsersController@update')->name('update');
-    Route::post('/users/update/{id}', 'UsersController@updateUsers')->name('updateUsers');
-    //delete
-    Route::get('/users/delete/{id}', 'UsersController@delete')->name('delete');
-});
+Route::resource('users', 'UsersController')->only('index');
+//create
+Route::get('users/create', 'UsersController@create')->name('users.create');
+Route::post('users/create', 'UsersController@store')->name('users.store');
+//update
+Route::get('users/update/{id}', 'UsersController@show')->name('users.show');
+Route::post('users/update/{id}', 'UsersController@edit')->name('users.edit');
+//delete
+Route::get('users/delete/{id}', 'UsersController@destroy')->name('users.destroy');
