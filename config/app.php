@@ -94,8 +94,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
-    // 'fallback_locale' => 'vi',
+    'fallback_locale' => 'vi',
 
     /*
     |--------------------------------------------------------------------------
