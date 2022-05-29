@@ -19,26 +19,25 @@ class Users extends Model
         'phone'
     ];
 
-    public static function users ()
+    public static function users()
     {
         return Users::orderBy('mail_address')->paginate(20);
     }
 
-    public static function store (Request $request)
+    public static function store(Request $request)
     {
         $users = $request->all();
         $users['password'] = md5($request->password);
         $request->session()->flash('success');
-
         return  Users::create($users);
     }
 
-    public static function show ($id)
+    public static function show($id)
     {
         return Users::all()->find($id);
     }
 
-    public static function edit ($id, Request $request)
+    public static function edit($id, Request $request)
     {
         $data = $request->all();
         $data['password'] = md5($request->password);
@@ -52,11 +51,10 @@ class Users extends Model
         $request->session()->flash('update');
     }
 
-    public static function remove (Request $request ,$id)
+    public static function remove(Request $request ,$id)
     {
         $user = Users::all()->find($id);
         $request->session()->flash('delete');
-
         return $user->delete();
     }
 }
