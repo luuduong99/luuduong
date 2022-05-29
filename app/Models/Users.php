@@ -29,6 +29,7 @@ class Users extends Model
         $users = $request->all();
         $users['password'] = md5($request->password);
         $request->session()->flash('success');
+
         return  Users::create($users);
     }
 
@@ -55,6 +56,7 @@ class Users extends Model
     {
         $user = Users::all()->find($id);
         $request->session()->flash('delete');
+
         return $user->delete();
     }
 }
