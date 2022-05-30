@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddMutilpleColumnToCategories extends Migration
+class CreateItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class AddMutilpleColumnToCategories extends Migration
      */
     public function up()
     {
-        Schema::table('categories', function (Blueprint $table) {
-            $table->string('name')->after('id');
-            $table->string('description')->after('name');
+        Schema::create('items', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('description');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -26,8 +29,6 @@ class AddMutilpleColumnToCategories extends Migration
      */
     public function down()
     {
-        Schema::table('categories', function (Blueprint $table) {
-            $table->dropColumn('name', 'description');
-        });
+        Schema::dropIfExists('items');
     }
 }

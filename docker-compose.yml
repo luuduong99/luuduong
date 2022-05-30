@@ -4,13 +4,13 @@ services:
     build:
       context: ./
       dockerfile: php.Dockerfile
-    container_name: laravel-basic-php-73-1
+    container_name: laravel-basic-php-73
     volumes:
       - ./:/var/www/html
 
   webserver:
     image: nginx:1.17.10
-    container_name: laravel-basic-nginx-webserver-1
+    container_name: laravel-basic-nginx-webserver
     links:
       - php:fpm
     environment:
@@ -24,10 +24,10 @@ services:
   db:
     platform: linux/x86_64
     image: mysql:5.7
-    container_name: laravel-basic-2
+    container_name: laravel-basic-mysql-db
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: luuduongDB
+      MYSQL_DATABASE: luuduong99
       MYSQL_USER: duong
       MYSQL_PASSWORD: duong
     ports:
