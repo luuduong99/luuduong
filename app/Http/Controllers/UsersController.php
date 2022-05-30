@@ -33,6 +33,7 @@ class UsersController extends Controller
     public function show($id)
     {
         $record = Users::show($id);
+
         return view('users.edit', compact('record'));
     }
 
